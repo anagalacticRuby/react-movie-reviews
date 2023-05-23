@@ -7,15 +7,14 @@ export default class ReviewForm extends React.Component {
   // When submitted, the review should be added to the movie.
   //All this data can be stored in an array, no networking or database needed for this assignment.
 
-  handleSubmit(){
-    return(
-        <Review />
-    );
+  handleSubmit() {
+    return <Review rating={5} />;
   }
 
   render() {
     return (
       <div className="reviewForm">
+        <h3>Create a review</h3>
         <form>
           <label>
             Username:
@@ -34,7 +33,12 @@ export default class ReviewForm extends React.Component {
             size="30"
           ></input>
           <br />
-          <Stars />
+          <label>
+            {" "}
+            Your movie Rating: (1-5 only)
+            <input type="number" min="1" max="5" name="rating"></input>
+          </label>
+          <br/>
           <input type="submit" />
         </form>
       </div>

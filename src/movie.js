@@ -2,6 +2,7 @@ import React from "react";
 import ReviewList from "./review-list";
 import ReviewForm from "./review-form";
 import Review from "./review";
+import Stars from "./stars";
 
 export default class Movie extends React.Component{
     constructor(props){
@@ -27,10 +28,11 @@ export default class Movie extends React.Component{
 
         return(
         <div>
-        <h2>{this.props.title}</h2>
+        <h2>{this.props.title} <Stars rating={this.props.rating}/></h2>
+        <br/>
         <img src={this.props.imgURL} width="500px" height="500px" alt={this.props.alt}/>
         <p>{this.props.summary}</p>
-        <ReviewList reviews={this.state.reviews}/>
+        <ReviewList reviews={this.props.reviews}/>
         <ReviewForm onSubmit={this.state.handleReview}/>
         </div>
         );
