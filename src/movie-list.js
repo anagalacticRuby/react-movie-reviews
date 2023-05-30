@@ -4,19 +4,18 @@ import React from "react";
 import Movie from "./movie";
 
 export default class MovieList extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            movie1: {reviews: ["foop", "bar", "buzz"], rating: 3},
-            movie2: {reviews: [], rating: 4},
-            movie3: {reviews: ["test1", "test3"], rating: 1},
-        }
-    }
-
   render() {
     //This component should render Movie components
     //Those Movie components have their own data
     //At a minimum, this component must render Movies, which will house their own data
+
+    /**
+     * Movie-Lists are the topmost parent for this React website
+     * Their direct children are Movie components, since a movie list will render Movie components.
+     * The ratings, summary, imageURL, and title are hard coded because it was easier to manage and get started with
+     * Future iterations of a project like this could have functionality 
+     * for users to add more movies to the list of movies, or delete them???
+     */
     return (
       <div>
         <Movie
@@ -24,24 +23,21 @@ export default class MovieList extends React.Component {
           imageURL="Action.png"
           summary="This is a cool Movie"
           alt="Alt1"
-          reviews={this.state.movie1.reviews}
-          rating={this.state.movie1.rating}
+          rating={3}
         />
         <Movie
           title="Movie2"
           imageURL="Romance.png"
           summary="Movie 2 is about romance"
           alt="Alt2"
-          reviews={this.state.movie2.reviews}
-          rating={this.state.movie2.rating}
+          rating={4}
         />
         <Movie
           title="Movie3"
           imageURL="Funny.png"
           summary="Movie 3 is a comedy movie"
           alt="Alt3"
-          reviews={this.state.movie3.reviews}
-          rating={this.state.movie3.rating}
+          rating={3}
         />
       </div>
     );

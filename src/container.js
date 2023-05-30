@@ -19,7 +19,7 @@ export default class Container extends React.Component{
                 console.log("hi");
             }
             else{
-                state.counts[name] += 1;
+                state.counts[name] = 1;
                 console.log("Stop" + state.counts + this.state.counts[name]);
                 console.log(this.state);
                 console.log(state);
@@ -29,6 +29,7 @@ export default class Container extends React.Component{
     }
 
     render(){
+        console.log(this.state);
         return(
             <div>
             <Counter
