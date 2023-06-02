@@ -5,7 +5,6 @@ export default class ReviewForm extends React.Component {
   // When submitted, the review should be added to the movie.
   //All this data can be stored in an array, no networking or database needed for this assignment.
 
-
   /* First, Movie component passes down its state information to review-form as props.
   Movie component also passes down onSubmit, which will be accessed as this.props.onSubmit
   Information will be returned by passing arguments into a call of this.props.onSubmit
@@ -26,9 +25,9 @@ export default class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      reviewText: '',
-      rating: '',
+      username: "",
+      reviewText: "",
+      rating: "",
     };
     this.handleReview = this.handleReview.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -39,13 +38,13 @@ export default class ReviewForm extends React.Component {
     const value = target.value;
     const name = target.name;
     this.setState({
-      [name]: value
+      [name]: value,
     });
     /**
      * handleInputChange is called whenever the value of any input is changed within a form.
      * Then, the state of the review-form component is set to the new value of whatever the user has input, one by one.
      * It may look strange but the reason variables are spread out like this is because not all of the input types are the same.
-     * 
+     *
      * Using event handlers for onChange makes this component a controlled component
      */
   }
@@ -72,40 +71,40 @@ export default class ReviewForm extends React.Component {
             this.handleReview(); //then, after preventDefault is called, handleReview() is called once the form is submitted
           }}
         >
-          <label>
-            Username:
-            <input
-              type="text"
-              placeholder="Username here"
-              name="username"
-              value={this.state.value}
-              onChange={this.handleInputChange}
-              required
-            ></input>
-          </label>
+          <label for="username">Username:&nbsp;</label>
+          <input
+            type="text"
+            placeholder="Username here"
+            name="username"
+            id="username"
+            value={this.state.value}
+            onChange={this.handleInputChange}
+            required
+          ></input>
           <br />
-
+          <label for="reviewtext">Review Text:</label>
           <textarea
             placeholder="Review text here"
             name="reviewText"
-            rows="3"
+            rows="5"
+            id="reviewtext"
             value={this.state.value}
             onChange={this.handleInputChange}
             required
           ></textarea>
           <br />
-          <label>
-            Your movie Rating: (1-5 only)
-            <input
-              type="number"
-              min="1"
-              max="5"
-              name="rating"
-              value={this.state.value}
-              onChange={this.handleInputChange}
-              required
-            ></input>
-          </label>
+          <label for="rating">Movie Rating: (1-5 only)</label>
+          <br />
+          <input
+            type="number"
+            min="1"
+            max="5"
+            name="rating"
+            id="rating"
+            value={this.state.value}
+            onChange={this.handleInputChange}
+            required
+          ></input>
           <br />
           <input type="submit" />
         </form>

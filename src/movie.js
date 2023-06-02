@@ -30,20 +30,19 @@ export default class Movie extends React.Component {
      * the use of '...' is the spread operator, and it is integral to making sure old values are retained each time
      * that the state is updated, since they are required for maintaining data.
      * Using push() or unshift() isn't recommended for state since it's mutable, instead using the spread operator is suggested
-     * 
+     *
      * addReview accepts review as a parameter, and because javaScript is loosely typed it is possible for this method
      * to call on properties that we may not be able to guarantee that review has. Should those values not exist,
      * then the state will not be updated properly.
      * For example, if review.rating was instead review.ratings, then the value of the state.ratings would be undefined.
      * This would cause the rendering of review-list to not display the ratings of reviews created by users.
-     * Check out this page for some help: https://react.dev/learn/updating-arrays-in-state 
+     * Check out this page for some help: https://react.dev/learn/updating-arrays-in-state
      */
   }
 
   handleReview(review) {
     this.addReview(review);
   }
-
 
   render() {
     //This component represents movie data
@@ -62,20 +61,34 @@ export default class Movie extends React.Component {
      */
     console.log(this.state);
     return (
-      <div>
-        <h2>
-          {this.props.title} <Stars value={this.props.rating} />
-        </h2>
-        <br />
-        <img
-          src={this.props.imgURL}
-          width="500px"
-          height="500px"
-          alt={this.props.alt}
-        />
-        <p>{this.props.summary}</p>
-        <ReviewList reviews={this.state.reviews} usernames={this.state.usernames} ratings={this.state.ratings}/>
-        <ReviewForm onSubmit={this.handleReview} />
+      <div className="wrapper">
+        <header className="header">
+          <h1>{this.props.title} <Stars value={this.props.rating} /></h1>
+        </header>
+        <article className="main">
+          <h2>Summary</h2>
+          <p>{this.props.summary}</p>
+        </article>
+        <aside className="aside image-aside">
+          <img
+            src={this.props.imageURL}
+            width="300px"
+            height="450px"
+            alt={this.props.alt}
+          />
+        </aside>
+        <aside className="aside review-aside">
+          <ReviewForm onSubmit={this.handleReview} />
+        </aside>
+        <footer className="footer">
+          <h3>Reviews</h3>
+          <hr/>
+          <ReviewList
+            reviews={this.state.reviews}
+            usernames={this.state.usernames}
+            ratings={this.state.ratings}
+          />
+        </footer>
       </div>
     );
   }

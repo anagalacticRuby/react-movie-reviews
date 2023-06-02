@@ -7,9 +7,8 @@ export default class Review extends React.Component{
  */
     render(){
         return(
-            <div>
-            <Stars value={this.props.stars}/>
-            <p>{this.props.username}</p>
+            <div className="review">
+            <p><i>{this.props.username}</i> <Stars value={this.props.stars}/></p>
             <p>{this.props.reviewtext}</p>
             </div>
         );     
