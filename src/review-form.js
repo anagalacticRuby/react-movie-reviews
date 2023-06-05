@@ -71,7 +71,7 @@ export default class ReviewForm extends React.Component {
             this.handleReview(); //then, after preventDefault is called, handleReview() is called once the form is submitted
           }}
         >
-          <label for="username">Username:&nbsp;</label>
+          <label htmlFor="username">Username:&nbsp;</label>
           <input
             type="text"
             placeholder="Username here"
@@ -82,7 +82,7 @@ export default class ReviewForm extends React.Component {
             required
           ></input>
           <br />
-          <label for="reviewtext">Review Text:</label>
+          <label htmlFor="reviewtext">Review Text:</label>
           <textarea
             placeholder="Review text here"
             name="reviewText"
@@ -93,7 +93,7 @@ export default class ReviewForm extends React.Component {
             required
           ></textarea>
           <br />
-          <label for="rating">Movie Rating: (1-5 only)</label>
+          <label htmlFor="rating">Movie Rating: (1-5 only)</label>
           <br />
           <input
             type="number"

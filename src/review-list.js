@@ -82,25 +82,25 @@ export default class ReviewList extends React.Component {
 
     return (
       <>
-      {console.log(this.props.reviews)}
-      {/* {this.reviewItems} */}
-      {/* {this.reviewMap} */}
+        {console.log(this.props.reviews)}
+        {/* {this.reviewItems} */}
+        {/* {this.reviewMap} */}
 
-      {/* {this.makeList(this.props.reviews, this.props.usernames, this.props.ratings)} */}
-      {this.props.reviews.map(function(element, index){
-        return (
-          <p key={index}>
-<Review
-reviewtext={element}
-stars={rating[index]}
-username={username[index]}
-/>
-          </p>
-        )
-      })}
-      {/* Because reviews are created with a username,rating, and text correlating to them,
+        {/* {this.makeList(this.props.reviews, this.props.usernames, this.props.ratings)} */}
+        {this.props.reviews.map(function (element, index) {
+          return (
+            <div key={index}>
+              <Review
+                reviewtext={element}
+                stars={rating[index]}
+                username={username[index]}
+              />
+            </div>
+          );
+        })}
+        {/* Because reviews are created with a username,rating, and text correlating to them,
          their index values will match between all three arrays. */}
-         {console.log(this.props.ratings)}
+        {console.log(this.props.ratings)}
       </>
     );
   }
